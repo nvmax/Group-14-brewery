@@ -9,33 +9,57 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin=""/>    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/><!-- the Bulma stuff-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/> <!-- the Bulma stuff-->
     <link rel="stylesheet" href="assets/css/style.css"/> <!-- My own CSS -->
     <title>Beer Finder</title> <!-- Browser tab lable -->
 
   </head>
 
   <body>
-    
-    <h1>Beer Finder</h1> 
 
-    <section class="section">
-      <div id="mapcontainer" class="container">
-        <div id="map"></div>
+    <section class="hero"> <!-- Top banner -->
+      <div class="hero-body box has-text-centered">
+        <p class="title">
+          Beer Finder
+        </p>
+        <p class="subtitle"> 
+          See what you can brew!
+        </p>
+      </div>
+    </section>
+
+   <section class="Coloumns is-flex">
+
+      <div class="column is-2 ml-6 flex-wrap is-flex-direction-column">
+
+        <div class="control has-icons-left"> 
+          <input class="input" type="text" placeholder="City name"> <!-- Search field here -->
+          <span class="icon is-left"> <!-- Icon position styling -->
+            <i class=" "></i> <!-- Icon placeholder -->
+          </span>
+        </div>
+
+        <button class="button is-outlined is-fullwidth" id="button">Search by city</button> <!-- This will be the "search by city" button -->
+
       </div>
 
-      <button class="button is-outlined" id="button">Search by city</button> <!-- This will be the "search by city" button -->
+  
+      <div class="column">  <!-- Column 2. -->
+          <div id="mapcontainer" class="container">
+            <div id="map"></div>
+          </div>
+      </div>
 
-      <div class="modal" id="main-modal"> <!-- Modal stuff is in this section -->
+      <div class="modal" id="main-modal"> <!-- Main modal stuff is in this section -->
         <div class="modal-content">
             <div class="section input-styling">
-             
+            
               <div class="field is-grouped">
-                <div class="box has-text-centered">
-                  <button class="button is-outlined is-medium">Yes</button> <!-- "Yes" button here -->
+                <div class="control">
+                  <button class="button is-outlined is-medium" id="button-for-yes">Yes</button> <!-- "Yes" button here -->
                 </div>
                 <div class="control">
-                  <button class="button is-outlined is-medium">No</button> <!-- "No" button here -->
+                  <button class="button is-outlined is-medium" id="button-for-no">No</button> <!-- "No" button here -->
                 </div>
               </div>
 
@@ -43,14 +67,23 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
       </div>
+
+      <div class="modal" id="alert-modal"> <!-- Basic modal structure to be built out into the error alert  -->
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <!-- Any other Bulma elements you want -->
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+      </div>
       
     </section>
     
-    <script src="./assets/js/script.js"></script> <!-- JS script link -->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script> <!-- JS script link -->
   </body>
 
 </html>
