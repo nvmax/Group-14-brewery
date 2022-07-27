@@ -4,3 +4,11 @@
     
 
   }
+.input-styling {
+    background-image: url(../images/768px-577-beer-mug.svg.png)!important;
+    height: 768px;
+    width: 577px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+    
