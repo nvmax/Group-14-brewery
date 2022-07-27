@@ -19,33 +19,38 @@
     
     <h1>Beer Finder</h1> 
 
-      <section class="section">
+    <section class="section">
       <div id="mapcontainer" class="container">
         <div id="map"></div>
       </div>
-      <button class="button is-outlined" id="button">Search by zipcode</button> <!-- This will be the modal button -->
+
+      <button class="button is-outlined" id="button">Search by city</button> <!-- This will be the "search by city" button -->
 
       <div class="modal" id="main-modal"> <!-- Modal stuff is in this section -->
-        <div class="modal-background"></div>
         <div class="modal-content">
+            <div class="section input-styling">
+             
+              <div class="field is-grouped">
+                <div class="box has-text-centered">
+                  <button class="button is-outlined is-medium">Yes</button> <!-- "Yes" button here -->
+                </div>
+                <div class="control">
+                  <button class="button is-outlined is-medium">No</button> <!-- "No" button here -->
+                </div>
+              </div>
 
-              <input class="input" type="text" placeholder="zipcode"> <!-- input field -->
-
+            <div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
       </div>
       
     </section>
     
-     
-    
-
-    
+    <script src="./assets/js/script.js"></script> <!-- JS script link -->
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/script.js"></script> <!-- placeholder for JS script link -->
   </body>
 
 </html>
