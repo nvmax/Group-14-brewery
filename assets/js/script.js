@@ -1,10 +1,11 @@
-var modal = document.getElementById('main-modal') // Variable for Modal
-var button = document.getElementById('button') // Variable for button
+var modal = document.getElementById('main-modal'); // Variable for Modal
+var button = document.getElementById('button'); // Variable for button
 var map
 
 button.onclick = function() {
     modal.style.display = 'block';
 }
+
 //https://api.openbrewerydb.org/
 
 var breweryAPI = "https://api.openbrewerydb.org/breweries?by_city=";
