@@ -1,9 +1,6 @@
 #map {
     /* hight 300px !important */
-    height: 300px !important;
-    z-index: -1;
-    
-
+    height: 700px !important;
   }
 .input-styling {
     background-image: url(../images/768px-577-beer-mug.svg.png)!important;
@@ -13,19 +10,32 @@
     background-repeat: no-repeat;
     z-index: 100;
 }
-    
-#button-for-no {
-    color: gold;
-    background-color: rgb(56, 56, 56);
+
+.alert-styling {
+    margin-top: 50%;
 }
 
-#button-for-yes {
-    color: gold;
-    background-color: rgb(56, 56, 56);
+.bgimage {
+    background-image: url(../images/light-sky-night-drink-lighting-beer-631748-pxhere.com.jpg);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-size:  cover;
 }
 
-.is-grouped {
-    /* I would love to rename this to something better, but it breaks it */
-    margin-top: 80%;
-    margin-left: 30%;
+#entranceexam {
+    margin-top: 18%;
+    margin-left: 58%;
+    border-radius: 25px;
+    width: 27%;
+    height: 25%;
+}
+
+#examtitle {
+    border-radius: 25px 25px 0px 0px;
+}
+
+
+#exambuttons {
+    margin-left: 35%;
+    margin-top: 4%;
 }
