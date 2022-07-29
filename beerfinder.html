@@ -15,31 +15,33 @@
 
   </head>
 
-  <body>
+  <div class = "bgimagemain">
+    <section class="hero is-fullheight">
+            <div class="hero-body">
+            </div>
+    </section>
+  </div>
 
-    <section class="hero"> <!-- Top banner -->
-      <div class="hero-body box has-text-centered">
-        <p class="title">
-          Beer Finder
-        </p>
-        <p class="subtitle"> 
-          See what you can brew!
-        </p>
+  <body>
+    
+    <section class="hero is-overlay" id="heroheadline">
+      <div class="hero-body is-fullwidth">
+        <div class="box">
+          <p class="title is-size-1">
+            Beer Finder
+          </p>
+          <p class="subtitle is-size-3 has-text-centered">
+            Find beer here!
+          </p>
+        </div>  
       </div>
     </section>
 
-   <section class="Coloumns is-flex is-overlay">
-
-    <div class = "bgimage">
-      <section class="hero is-fullheight">
-              <div class="hero-body">
-              </div>
-      </section>
-  </div>
+   <section class="Coloumns is-flex is-overlay" id="columnset">
 
       <div class="column is-2 ml-6 flex-wrap is-flex-direction-column">
 
-        <div class="control has-icons-left"> 
+        <div class="control has-icons-left" id="citysearch"> 
           <input class="input" type="text" placeholder="City name"> <!-- Search field here -->
           <span class="icon is-left"> <!-- Icon position styling -->
             <i class=" "></i> <!-- Icon placeholder -->
@@ -49,16 +51,16 @@
         <button class="button is-outlined is-fullwidth" id="button">Search by city</button> <!-- This will be the "search by city" button -->
 
       </div>
-
   
       <div class="column">  <!-- Column 2. -->
+        <div class="box" id="mapwrap">
           <div id="mapcontainer" class="container">
             <div id="map"></div>
           </div>
+        </div>  
       </div>
 
     </section>
-    
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"

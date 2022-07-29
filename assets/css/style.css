@@ -2,17 +2,26 @@
     /* hight 300px !important */
     height: 700px !important;
   }
-.input-styling {
-    background-image: url(../images/768px-577-beer-mug.svg.png)!important;
-    height: 768px;
-    width: 577px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: 100;
-}
 
 .alert-styling {
     margin-top: 50%;
+}
+
+#columnset {
+    margin-top: 11%;
+    margin-left: 10%;
+}
+
+#heroheadline {
+    margin-top: 2%;
+    margin-left: 50%;
+    max-width: fit-content;
+}
+
+#mapwrap {
+    margin-left: 80px;
+    width: 80%;
+    border-radius: 25px; 
 }
 
 .bgimage {
@@ -20,6 +29,14 @@
     background-position: center center;
     background-repeat:  no-repeat;
     background-size:  cover;
+}
+
+.bgimagemain {
+    background-image: url(../images/light-sky-night-drink-lighting-beer-631748-pxhere.com.jpg);
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-size:  cover;
+    z-index: 10;
 }
 
 #entranceexam {
