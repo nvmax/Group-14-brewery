@@ -1,8 +1,11 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 var modal = document.getElementById('main-modal'); // Variable for Modal
 var button = document.getElementById('button'); // Variable for button
 var map
 =======
+=======
+>>>>>>> Stashed changes
 
 var button = document.getElementById('button') // Variable for button
 var map;
@@ -33,6 +36,9 @@ $("#search-input").keypress(function (event) {
    }
 });
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 button.onclick = function() {
@@ -47,8 +53,11 @@ button.onclick = function() {
 
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 //https://api.openbrewerydb.org/
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 
@@ -89,8 +98,21 @@ function getLocation() {
       lat = position.coords.latitude;
       long = position.coords.longitude;
       var coordinates = (lat + "," + long);
+<<<<<<< Updated upstream
       mapcity(coordinates);
+=======
+<<<<<<< Updated upstream
+      mapcity(coordinates);
+=======
+      map(coordinates);
+      getBreweryData();  
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
    }
+
    getLocation();
    
    // error function for geolocation
@@ -120,7 +142,7 @@ var mapcity = (coordinates)=> {
     
    map = L.map('map').setView([lat,lng], 13);
    
-   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+   L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
    }).addTo(map)
@@ -136,20 +158,20 @@ var LeafIcon = L.Icon.extend({
    }
 });
 
-var greenIcon = new LeafIcon({iconUrl: './assets/images/leaf-green.png'}),
+var greenIcon = new LeafIcon({iconUrl: './assets/images/pin.png'}),
     redIcon = new LeafIcon({iconUrl: './assets/images/leaf-red.png'}),
     orangeIcon = new LeafIcon({iconUrl: './assets/images/leaf-orange.png'});
 
 
 
 var greenIcon = L.icon({
-   iconUrl: './assets/images/leaf-green.png',
+   iconUrl: './assets/images/pin.png',
    shadowUrl: './assets/images/leaf-shadow.png',
 
-   iconSize:     [38, 95], // size of the icon
-   shadowSize:   [50, 64], // size of the shadow
+   iconSize:     [50, 50], // size of the icon
+   // shadowSize:   [50, 64], // size of the shadow
    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-   shadowAnchor: [4, 62],  // the same for the shadow
+   // shadowAnchor: [4, 62],  // the same for the shadow
    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
@@ -169,12 +191,79 @@ function getBreweryData(city) {
          if (lat !== null || lng !== null){
             var marker = L.marker([lat,lng], {icon: greenIcon}).addTo(map);
             marker.bindPopup(brewery.name + "<br>" + brewery.street + "<br>" + brewery.city + "<br>" + brewery.state + "<br>" + brewery.phone + "<br>" + brewery.website_url);
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
          }
       }
    });
 }
+// address_2: null
+// address_3: null
+// brewery_type: "regional"
+// city: "Minneapolis"
+// country: "United States"
+// county_province: null
+// created_at: "2021-10-23T02:24:55.243Z"
+// id: "indeed-brewing-co-minneapolis"
+// latitude: null
+// longitude: null
+// name: "Indeed Brewing Co"
+// phone: "6128435090"
+// postal_code: "55413-3103"
+// state: "Minnesota"
+// street: "711 15th Ave NE Ste 102"
+// updated_at: "2021-10-23T02:24:55.243Z"
+// website_url: "http://www.indeedbrewing.com"
+// [[Prototype]]: Object
+<<<<<<< Updated upstream
 
+
+// function for local storage of city searches
+function saveCity(city) {
+   // save city to local storage as an array if not already there
+   if (localStorage.getItem("cities") === null) {
+      var cities = [];
+      cities.push(city);
+      localStorage.setItem("cities", JSON.stringify(cities));
+   } else {
+      // if city is null skip else add to city if not already there
+      if (city !== null) {
+         var cities = JSON.parse(localStorage.getItem("cities"));
+         if (cities.indexOf(city) === -1) {
+            cities.push(city);
+            localStorage.setItem("cities", JSON.stringify(cities));
+         }    
+      }
+   }
+};
+
+// function to parse data from local storage city list
+function getCities() {
+   // get cities from local storage
+   var cities = JSON.parse(localStorage.getItem("cities"));
+   console.log(cities);
+   // loop through cities and create buttons for each city
+   for (var i = 0; i < cities.length; i++) {
+      var city = cities[i];
+      var button = $("<button>");
+      button.addClass("button is-outlined is-fullwidth");
+      button.attr("data-name", city);
+      button.text(city);
+      $("#city-buttons").append(button);
+   }
+};
+=======
+>>>>>>> Stashed changes
+
+getCities();
 
 // function for local storage of city searches
 function saveCity(city) {
