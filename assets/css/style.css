@@ -1,76 +1,50 @@
 #map {
     /* hight 300px !important */
-    height: 700px !important;
+    height: 1028px !important;
   }
 
-.alert-styling {
-    margin-top: 50%;
-}
-
-#columnset {
-    margin-top: 11%;
-    margin-left: 10%;
-}
-
-#heroheadline {
-    margin-top: 2%;
-    margin-left: 50%;
-    max-width: fit-content;
-}
-
 #mapwrap {
-    margin-left: 80px;
     width: 80%;
-    border-radius: 25px; 
+    border-radius: 25px;
+    margin-left: 10%; 
+}
+
+#citysearch {
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .bgimage {
     background-image: url(../images/light-sky-night-drink-lighting-beer-631748-pxhere.com.jpg);
-    background-position: center center;
+    background-position: center;
     background-repeat:  no-repeat;
     background-size:  cover;
 }
 
 .bgimagemain {
     background-image: url(../images/light-sky-night-drink-lighting-beer-631748-pxhere.com.jpg);
-    background-position: center center;
-    background-repeat:  no-repeat;
-    background-size:  cover;
-    z-index: 10;
+    background-position: center !important;
+    background-repeat:  no-repeat !important;
+    background-size:  cover !important;
+    z-index: -1 !important;
 }
 
 #entranceexam {
     margin-top: 18%;
     margin-left: 58%;
     border-radius: 25px;
-    width: 27%;
-    height: 25%;
+    width: fit-content;
+    height: fit-content;
 }
 
 #examtitle {
     border-radius: 25px 25px 0px 0px;
+    flex-shrink: inherit;
 }
 
 
 #exambuttons {
     margin-left: 35%;
     margin-top: 4%;
-}
- 
-  
-#button-for-no {
-  color: gold;
-  background-color: rgb(56, 56, 56);
-}
-
-#button-for-yes {
-  color: gold;
-  background-color: rgb(56, 56, 56);
-}
-
-.is-grouped {
-  /* I would love to rename this to something better, but it breaks it */
-  margin-top: 80%;
-  margin-left: 30%;
 }
 
