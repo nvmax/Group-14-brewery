@@ -17,33 +17,30 @@
 
   <body>
 
-
-    <div class="message is-overlay" id="entranceexam">
-        <div class="message-header is-size-1" id="examtitle">
-          <p>Welcome to Beer Finder!</p>
-        </div>
-        <div class="message-body is-size-3 has-text-centered" id="examquestion">
-          <p>Are you over the age of 21?</p>
-          <div class="field is-grouped" id="exambuttons">
-            <div class="control">
-              <button class="button is-black is-large" id="buttonyes">Yes</button>
-            </div>
-            <div class="control">
-              <button class="button is-black is-large" id="buttonno">No</button>
+    <div class="bgimage is-ancestor is-12">
+      <div class="hero is-fullheight">
+        <div class="hero-body">
+          <div class="tile is-parent is-vertical is-12  hero">
+            <div class="tile">
+              <div class="message is-child" id="entranceexam">
+                <div class="message-header is-child is-size-1" id="examtitle">
+                  <p>Welcome to Beer Finder!</p>
+                </div>
+                <div class="message-body  is-size-3 has-text-centered" id="examquestion">
+                  <p>Are you over the age of 21?</p>
+                  <nav class="breadcrumb is-right" aria-label="breadcrumbs">
+                    <ul class="is-justify-content-center">
+                      <li><a href="beerfinder.html">YES</a></li>
+                      <li><a href="http://www.rootbeer.com/">NO</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
     </div>
-
-    <div class = "bgimage">
-        <section class="hero is-fullheight">
-                <div class="hero-body">
-                </div>
-        </section>
-    </div>
-
-      
-    </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
