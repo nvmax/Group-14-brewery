@@ -33,7 +33,7 @@ $("#no").on("click", function () {
   // set timer to 2 seconds then forward to www.rootbeer.com
   setTimeout(function () {
     window.location.href = "https://www.rootbeer.com/";
-  }, 10000);
+  }, 2000);
 });
 
 // load customer response from local storage if yes go to beerfinder.html
