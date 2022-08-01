@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A student project about finding beer- because after this we need a drink."/> <!-- Web search description -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A student project about finding beer- because after this we need a drink." />
+  <!-- Web search description -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin=""/>    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/> <!-- the Bulma stuff-->
-    <link rel="stylesheet" href="assets/css/style.css"/> <!-- My own CSS -->
-    <title>Beer Finder</title> <!-- Browser tab lable -->
+    crossorigin="" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" /> <!-- the Bulma stuff-->
+  <link rel="stylesheet" href="assets/css/style.css" /> <!-- My own CSS -->
+  <title>Brewery Finder</title> <!-- Browser tab lable -->
 
-  </head>
+</head>
 
-  <body>
-
-    <div class="bgimage is-ancestor is-12">
-      <div class="hero is-fullheight">
-        <div class="hero-body">
-          <div class="tile is-parent is-vertical is-12  hero">
-            <div class="tile">
-              <div class="message is-child" id="entranceexam">
-                <div class="message-header is-child is-size-1" id="examtitle">
-                  <p>Welcome to Beer Finder!</p>
-                </div>
-                <div class="message-body  is-size-3 has-text-centered" id="examquestion">
-                  <p>Are you over the age of 21?</p>
-                  <nav class="breadcrumb is-right" aria-label="breadcrumbs">
-                    <ul class="is-justify-content-center">
-                      <li><a href="beerfinder.html">YES</a></li>
-                      <li><a href="http://www.rootbeer.com/">NO</a></li>
-                    </ul>
-                  </nav>
+<body>
+  <div class="bgimage is-ancestor is-12">
+    <div class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="tile is-parent is-vertical is-12  hero">
+          <div class="tile">
+            <div class="message is-child" id="entranceexam">
+              <div class="message-header is-child is-size-1" id="examtitle">
+                <p>Welcome to Brewery Finder!</p>
+              </div>
+              <div class="message-body  is-size-3 has-text-centered" id="examquestion">
+                <p>Are you over the age of 21?</p>
+                <nav class="breadcrumb is-right" aria-label="breadcrumbs">
+                  <ul class="is-justify-content-center">
+                    <li><a id="yes">YES</a></li>
+                    <li><a id="no">NO</a></li>
+                  </ul>
+                </nav>
+              </div>
+              <div id="myModal" class="modal">
+                <div class="modal-content has-text-centered is-size-3">
+                  <span class="close">&times;</span>
+                  <p id="error"></p>
                 </div>
               </div>
             </div>
@@ -42,13 +47,20 @@
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
-
-    <script src="./assets/js/script.js"></script> <!-- JS script link -->
-
-  </body>
+  <script src="./assets/js/iscript.js"></script> <!-- JS script link -->
+</body>
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      <strong>BreweryFinder</strong> by <a href="https://github.com/Childofrainydays">Rhiannon Burk(Rayne)</a>
+        & <a href="https://github.com/nvmax">Jerrod Linderman</a>. 
+   
+    </p>
+  </div>
+</footer>
 
 </html>
