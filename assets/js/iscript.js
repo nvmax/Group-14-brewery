@@ -28,12 +28,12 @@ $("#yes").on("click", function () {
 
 // no click sends customer to rootbeer.com
 $("#no").on("click", function () {
-  $("#error").append("<p>Must be 21 or older to enter sorry!</p>");
+  $("#error").append("<p>Must be 21 or older to enter, sorry!</p>");
   modalError();
   // set timer to 2 seconds then forward to www.rootbeer.com
   setTimeout(function () {
     window.location.href = "https://www.rootbeer.com/";
-  }, 2000);
+  }, 10000);
 });
 
 // load customer response from local storage if yes go to beerfinder.html

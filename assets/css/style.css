@@ -30,11 +30,7 @@
   height: 25% !important;
   width: 75% !important;
 }
-.hero .herobody {
-  /* padding-top: 0;
-  padding-left: 0;
-  padding-right: 0; */
-}
+
 .tile.is-parent {
   padding-top: 0;
   padding-left: 0;
@@ -101,6 +97,9 @@
   cursor: pointer;
 }
 
+.footer {
+  padding: 0%;
+}
 
 
 

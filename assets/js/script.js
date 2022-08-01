@@ -18,6 +18,7 @@ const coordinates = {};
 $(".input").click(function () {
   $(this).val("");
 });
+
 // span.onclick function
 span.onclick = function () {
   modal.style.display = "none";
@@ -43,10 +44,13 @@ $("#search-input").keypress(function (event) {
   if (event.which == 13) {
     // if #search-input is empty, send error message to modal
     if ($("#search-input").val() === "") {
-      // append id="error" in html
+      // append paragraph id="error" in html
       $("#error").append("<p>Please enter a city</p>");
+      // turns map off
       map.off();
+      // removes map
       map.remove();
+      // calls modalError function
       modalError();
     }
     // else gets value from class=input on html
@@ -66,10 +70,13 @@ $("#search-input").keypress(function (event) {
 button.onclick = function () {
   // if #search-input is empty, send error message to modal else get value from class=input on html
   if ($("#search-input").val() === "") {
-    // append id="error" in html
+    // append p id="error" in html
     $("#error").append("<p>Please enter a city</p>");
+    // turns map off
     map.off();
+    // removes map
     map.remove();
+    // calls modalError function
     modalError();
   } else {
     var city = $("#search-input").val();
@@ -87,36 +94,44 @@ button.onclick = function () {
 // city-buttons add click event to each button
 $("#city-buttons").on("click", ".button", function () {
   var city = $(this).text();
-  // send to get city function
+  // send to saveCity function
   saveCity(city);
+  // send to getCity function
   getCity(city);
   // send to get brewery data function
   getBreweryData(city);
+  // adds loading icon to button until brewery data is collected
   $(this).addClass("is-loading");
 });
 
 // function to call geoaip and query city
 function getCity(city) {
-  var urlcity =
-    geoapi + "forward" + "?access_key=" + apikey + "&country=US&query=" + city;
-  $.getJSON(urlcity, function (data) {
-    console.log(data);
+  // call geoaip and query city
+  var urlcity = geoapi + "forward" + "?access_key=" + apikey + "&country=US&query=" + city;
+  // ajax call to geoaip
+  $.getJSON(urlcity, function (data) {;
     // if data array is not empty
     if (data.data.length !== 0) {
-      // get latitude and longitude from API
+      // get latitude and longitude from APIdata
       var lat = data.data[0].latitude;
       var lng = data.data[0].longitude;
       var coordinates = lat + "," + lng;
+      // turns map off
       map.off();
+      // removes map
       map.remove();
+      // calls mapcity function
       mapcity(coordinates);
+      // calls getBreweryData function
       getBreweryData(city);
       // remove is-loading class from button
       $(".button").removeClass("is-loading");
     } else {
-      // if data is empty, send error message to modal
+      // appends <p> with error </p>
       $("#error").append("<p>CITY NOT FOUND</p>");
+      // calls modalError function
       modalError();
+      // calls to removebutton function
       removebutton();
     }
   });
@@ -125,11 +140,11 @@ function getCity(city) {
 function removebutton() {
   // removes last button in city-buttons and removes last entry from localstorage
   $("#city-buttons").children().last().remove();
-  // var cities from localstorage
+  // var all cities from list of cities in localstorage
   var cities = JSON.parse(localStorage.getItem("cities"));
   // removes last entry from localstorage
   cities.pop();
-  // set localstorage to cities
+  // set localstorage to cities and pushes list back to localstorage
   localStorage.setItem("cities", JSON.stringify(cities));
 }
 
@@ -150,7 +165,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  // save position to local storage as lat and longitude
+  // saves position to local storage as lat and longitude
   localStorage.setItem("lat", position.coords.latitude);
   localStorage.setItem("lng", position.coords.longitude);
   lat = position.coords.latitude;
@@ -168,6 +183,7 @@ var mapcity = (coordinates) => {
   var lng = coordinates.split(",")[1];
   // if lat and long are not null or undefined, initialize map
   if (lat !== null && lng !== null && lat !== undefined && lng !== undefined) {
+    // initialize map with set information 
     map = L.map("map").setView([lat, lng], 12);
     L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
       maxZoom: 19,
@@ -176,6 +192,8 @@ var mapcity = (coordinates) => {
     }).addTo(map);
   }
 };
+
+// leaflet map icons extended attributes
 var LeafIcon = L.Icon.extend({
   options: {
     shadowUrl: "",
@@ -186,7 +204,7 @@ var LeafIcon = L.Icon.extend({
     popupAnchor: [0, -10],
   },
 });
-
+// leaflet map icons and attributes
 var beermug = new LeafIcon({ iconUrl: "./assets/images/beer-mug-icon.png" });
 var beermug = L.icon({
   iconUrl: "./assets/images/beer-mug-icon.png",
@@ -198,22 +216,21 @@ var beermug = L.icon({
   popupAnchor: [0, -50], // point from which the popup should open relative to the iconAnchor
 });
 
-// function for getting brewery data from API
+  // function for getting brewery data from API
 function getBreweryData(city) {
   // while waiting for brewery data show put loading icon on button using class="button is-loading"
   $("#button").addClass("button is-outlined is-fullwidth is-loading");
-
   // get brewery data from API
-
   $.getJSON(breweryAPI + city + endAPI, function (data) {
-    // loop through brewery data and create markers for each brewery
+  // loop through brewery data and create markers for each brewery
     for (var i = 0; i < data.length; i++) {
       var brewery = data[i];
       var lat = brewery.latitude;
       var lng = brewery.longitude;
-
+  // if lat and long are not null or undefined, create marker
       if (lat !== null || lng !== null) {
         var marker = L.marker([lat, lng], { icon: beermug }).addTo(map);
+        // data from brewery API for Marker data
         marker.bindPopup(
           brewery.name +
             "<br>" +
@@ -236,21 +253,26 @@ function getBreweryData(city) {
   });
 }
 
-// function to parse data from local storage city list
+    // function to parse data from local storage city list
 function loadCities() {
-  // remove all items from #city-buttons
+    // remove all items from #city-buttons
   $("#city-buttons").empty();
-  // get cities from local storage
+    // get cities from local storage
   var cities = JSON.parse(localStorage.getItem("cities"));
   console.log(cities);
-  // check if local storage is empty if so exit function if not empty loop through cities and create buttons for each city
+    // check if local storage is empty if so exit function if not empty loop through cities and create buttons for each city
   if (cities !== null) {
     for (var i = 0; i < cities.length; i++) {
       var city = cities[i];
+    // create button for city
       var button = $("<button>");
+    // adds class to button
       button.addClass("button mt-1 is-outlined is-fullwidth");
+    // adds attribute to button from variable
       button.attr("data-name", city);
+    // adds text to button from variable
       button.text(city);
+    // adds button to #city-buttons
       $("#city-buttons").append(button);
     }
   }
@@ -258,13 +280,16 @@ function loadCities() {
 
 loadCities();
 
-// function for local storage of city searches
+    // function for local storage of city searches
 function saveCity(city) {
-  // save city to local storage
+    // if local storage is empty create array and push city to array
   if (localStorage.getItem("cities") === null) {
     var cities = [];
+    // pushes city to array
     cities.push(city);
+    // set local storage to cities array with city name
     localStorage.setItem("cities", JSON.stringify(cities));
+    // if local storage is not empty create array and push city to array
   } else if (localStorage.getItem("cities") !== null) {
     var cities = JSON.parse(localStorage.getItem("cities"));
     if (cities.indexOf(city) === -1) {
