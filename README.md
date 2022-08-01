@@ -34,26 +34,28 @@ You and your group will use everything you’ve learned over the past six module
 
 [openbrewerydb](https://openbrewerydb.com/) - Open Brewery Database is a database of breweries in the United States.
 
+[PTV Group API](https://www.myptv.com/en) - PTV Group API is a Forward Geolocation reference allowing you to search by state, city, address and much more. 
 
-[positionstack](https://positionstack.com/) - Position Stack is a web service that allows you to get the current location of a user.
+[geolocation-db.com](http://geolocation-db.com) is a API to get an approximate location of user via their IP
 
 ## Bulma CSS Framework:
 [Bulma](https://bulma.io/) - Bulma is a free and open source framework for responsive, mobile-first layouts.
 
 
 ## User Story:
-* **Given** I am a user who wants to find breweries with in the city
+
+* **Given** I am a user who wants to find breweries within a city
 * **When** I search for breweries
-* **Then** I can see a list of breweries with in the city specified
+* **Then** I can see a list of breweries within the city specified.
 
  * **Given** I enter a city in the search field
-* **When** it loads a map of the city searched for 
-* **Then** displays breweries of that city and marks them on the map
+* **When** it loads a map of the city searched
+* **Then** displays breweries of that city and marks them on the map.
 
 * **Given** I want to see the details of the brewery
 * **When**  I click on a brewery marker on the map
 * **Then** I can see the details of the brewery
-* **And** I can click a link to the brewery's website
+* **And** I can click a link to the brewery's website.
 
 
 ## The Creators:
@@ -65,7 +67,7 @@ You and your group will use everything you’ve learned over the past six module
 
 Bulma CSS has very limited details on how to style elements and allow them to work together.
 
-Positions Stack was a bit of a challenge to get working. with it not set to country it would give results from around the world.
+Positions Stack was a bit of a challenge to get working. Though it didnt work due to it being a paid service for https requests which github requires, we swapped that out for PTV Group API which is free use on https requests 
 
 Having 2 people in our group, group knowledge was limited. 
 
@@ -81,7 +83,7 @@ Bulma Tiles, after trying to use columns and its structure we found columns are 
 
 while using bulma Button interference with JS "button.onclick" and reworked with breadcrumb
 
-Fixed issues with positionstack after reading documentation and alot of articles I was able to finally figure out how to use it. 
+Fixed issues with positionstack by using PTV Group API and with their documentation and a bit of help from classmate was able to get the response data I needed.  
 
 Self Created icons and header image to use with in our project. 
 
@@ -103,3 +105,10 @@ Read dozens of articles on github practices and actions was able to resolve most
 
 ![](/assets/images/markerpin.png)
 
+
+
+## Repo:
+https://github.com/nvmax/Group-14-brewery
+
+## Deployed Site:
+https://nvmax.github.io/Group-14-brewery/beerfinder.html
