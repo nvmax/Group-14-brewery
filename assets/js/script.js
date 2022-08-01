@@ -8,9 +8,9 @@ var breweryAPI = "https://api.openbrewerydb.org/breweries?by_city=";
 //https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3
 // var city = "minneapolis"
 var endAPI = "&per_page=50";
-// http://api.positionstack.com/v1/forward
-geoapi = "http://api.positionstack.com/v1/";
-apikey = "0c016d19421d4c9f6672fb2ff1025c84";
+// https://developer.myptv.com/Home.htm
+geoapi = "https://api.myptv.com/geocoding/v1/locations/by-text?searchText=";
+apikey = "MDg3MGFhN2NhZGRjNDdiMGJiYjgxZTE0OTE4OTVhYTY6OTI2NzI5ZGEtNTRiMC00ZTBhLWFkYjEtNzk3YWNhNWE1ODdk";
 var map;
 const coordinates = {};
 
@@ -57,9 +57,9 @@ $("#search-input").keypress(function (event) {
     else {
       var city = $("#search-input").val();
       saveCity(city);
-      // calls getCity function to get city from input
+      // calls getCity function
       getCity(city);
-      // calls getBreweryData function to get brewery data from API
+      // calls loadCities function 
       loadCities();
       // clears search-input field
       $("#search-input").val("");
@@ -84,8 +84,6 @@ button.onclick = function () {
     saveCity(city);
     // calls getCity function to get city from input
     getCity(city);
-    // calls getBreweryData function to get brewery data from API
-    getBreweryData(city);
     // loads cities from local storage to refresh buttons
     loadCities();
   }
@@ -98,8 +96,6 @@ $("#city-buttons").on("click", ".button", function () {
   saveCity(city);
   // send to getCity function
   getCity(city);
-  // send to get brewery data function
-  getBreweryData(city);
   // adds loading icon to button until brewery data is collected
   $(this).addClass("is-loading");
 });
@@ -107,14 +103,14 @@ $("#city-buttons").on("click", ".button", function () {
 // function to call geoaip and query city
 function getCity(city) {
   // call geoaip and query city
-  var urlcity = geoapi + "forward" + "?access_key=" + apikey + "&country=US&query=" + city;
+  var urlcity = geoapi + city + "&countryFilter=US"+ "&apiKey=" + apikey;
   // ajax call to geoaip
   $.getJSON(urlcity, function (data) {;
     // if data array is not empty
-    if (data.data.length !== 0) {
-      // get latitude and longitude from APIdata
-      var lat = data.data[0].latitude;
-      var lng = data.data[0].longitude;
+    if (data.length !== 0) {
+      // get data from array under locations 0: referencePostition
+      var lat = data.locations[0].referencePosition.latitude;
+      var lng = data.locations[0].referencePosition.longitude;
       var coordinates = lat + "," + lng;
       // turns map off
       map.off();
@@ -147,6 +143,7 @@ function removebutton() {
   // set localstorage to cities and pushes list back to localstorage
   localStorage.setItem("cities", JSON.stringify(cities));
 }
+
 
 // get users current location from browser and var lat and longitude and pass to map function
 //https://www.codeunderscored.com/how-to-get-a-user-location-using-html-and-javascript/
