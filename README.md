@@ -67,7 +67,7 @@ You and your group will use everything you’ve learned over the past six module
 
 Bulma CSS has very limited details on how to style elements and allow them to work together.
 
-Positions Stack was a bit of a challenge to get working. Though it didnt work due to it being a paid service for https requests which github requires, we swapped that out for PTV Group API which is free use on https requests 
+After creating 95% of the code and testing it out locally found positionstack did not have free https which github requires, had to change it out and rewite code. 
 
 Having 2 people in our group, group knowledge was limited. 
 
