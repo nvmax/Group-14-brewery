@@ -106,12 +106,10 @@ function getCity(city) {
   $.getJSON(urlcity, function (data) {
     // if data array is not empty
     if (data.locations.length !== 0) {
-      console.log(data);
       // get data from array under locations 0: referencePostition
       var lat = data.locations[0].referencePosition.latitude;
       var lng = data.locations[0].referencePosition.longitude;
       var city1 = data.locations[0].address.city;
-      console.log(city1);
       saveCity(city1);
       var coordinates = lat + "," + lng;
       // turns map off
@@ -130,8 +128,6 @@ function getCity(city) {
       $("#error").append("<p>CITY NOT FOUND</p>");
       // calls modalError function
       modalError();
-      
-      
     }
   });
 };
