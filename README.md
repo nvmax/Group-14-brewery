@@ -111,4 +111,4 @@ Read dozens of articles on github practices and actions was able to resolve most
 https://github.com/nvmax/Group-14-brewery
 
 ## Deployed Site:
-https://nvmax.github.io/Group-14-brewery/beerfinder.html
+https://nvmax.github.io/Group-14-brewery/index.html
